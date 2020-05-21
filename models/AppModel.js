@@ -11,8 +11,6 @@ var AppModel = Backbone.Model.extend({
   },
 
   showReviews: function (id) {
-    // turn our string into a number
-    id = parseInt(id);
 
     var allBeers = this.get('beers');
 
@@ -20,6 +18,8 @@ var AppModel = Backbone.Model.extend({
 
     this.set('current_beer', currentBeer);
     this.set('show_reviews', true);
+
+    currentBeer.get('reviews').url = `https://beer-review-api.herokuapp.com/beers/${id}/reviews`
   },
 
   showBeers: function () {

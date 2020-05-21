@@ -1,10 +1,14 @@
 var ReviewsCollection = Backbone.Collection.extend({
+  
   model: ReviewModel,
 
+
   addReview: function (name, text) {
-    this.add({
+    this.create({
       name: name,
       text: text
-    })
-  }
+    }, { wait: true })
+  },
+
+
 });
